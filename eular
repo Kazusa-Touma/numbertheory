@@ -1,0 +1,15 @@
+int n, prime[5000005], cnt;
+bool vis[10000005];
+void init()
+{
+    for (int i = 2; i <= 10000005; i++) {
+        if (!vis[i]) {
+            prime[++cnt] = i;
+        }
+        for (int j = 1; j <= cnt && i * prime[j] <= 10000005; j++) {
+            vis[i * prime[j]] = 1;
+            if (i % prime[j] == 0)
+                break;
+        }
+    }
+}
