@@ -1,0 +1,13 @@
+void exgcd(int n, int m, int& x, int& y)
+{
+	if (m == 0) {
+		x = 1;
+		y = 0;
+	}
+	else {
+		int tx, ty;
+		exgcd(m, n % m, tx, ty);
+		x = ty;
+		y = tx - n / m * ty;
+	}
+}
